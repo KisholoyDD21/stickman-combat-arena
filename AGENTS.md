@@ -8,3 +8,4 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+- Game simulation lives in src/game/engine.ts (canvas + rAF, no React state); React UI only reads HUD snapshots — keeps the loop fast and UI decoupled.
