@@ -604,9 +604,9 @@ export class Engine {
       ctx.fillStyle = "#0a0c1c";
       ctx.fillRect(tw.x, top, tw.w, tw.h + 150);
       for (let i = 0; i < tw.lit.length; i++) {
-        if (tw.lit[i] < 0.6) continue;
+        if (tw.lit[i]! < 0.6) continue;
         const wx = tw.x + 6 + (i % 3) * (tw.w / 3.2), wy = top + 14 + Math.floor(i / 3) * 22;
-        ctx.fillStyle = tw.lit[i] > 0.85 ? "rgba(255,120,60,0.55)" : "rgba(60,220,255,0.35)";
+        ctx.fillStyle = tw.lit[i]! > 0.85 ? "rgba(255,120,60,0.55)" : "rgba(60,220,255,0.35)";
         ctx.fillRect(wx, wy, 5, 8);
       }
     }
@@ -710,7 +710,7 @@ export class Engine {
     if (f.trail.length > 1) {
       ctx.lineCap = "round";
       for (let i = 1; i < f.trail.length; i++) {
-        const a = f.trail[i - 1], b = f.trail[i];
+        const a = f.trail[i - 1]!, b = f.trail[i]!;
         ctx.strokeStyle = `rgba(255,211,77,${b.life * 0.8})`;
         ctx.lineWidth = 18 * b.life;
         ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
@@ -722,8 +722,8 @@ export class Engine {
     ctx.lineCap = "round"; ctx.lineJoin = "round";
     const limb = (pts: { x: number; y: number }[], color: string, w: number) => {
       ctx.strokeStyle = color; ctx.lineWidth = w;
-      ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
-      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+      ctx.beginPath(); ctx.moveTo(pts[0]!.x, pts[0]!.y);
+      for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i]!.x, pts[i]!.y);
       ctx.stroke();
     };
     const dot = (p: { x: number; y: number }, r: number, color: string) => {
